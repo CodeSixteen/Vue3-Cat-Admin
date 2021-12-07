@@ -1,15 +1,16 @@
 {
   "name": "cydy-vue3-admin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "svgo": "svgo -f src/svg-icons -o src/svg-icons"
+    "svgo": "svgo -f src/icons/svg -o src/icons/svg"
   },
   "dependencies": {
     "vue": "^3.2.16",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^16.11.11",
