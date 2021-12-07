@@ -14,5 +14,12 @@ export default defineConfig({
   },
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, 'src') }]
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import './src/styles/variables.scss';` // 全局使用 scss styles 变量
+      }
+    }
+  },
 })

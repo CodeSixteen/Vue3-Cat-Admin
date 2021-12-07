@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './styles/base.css'
+import './styles/index.scss'
 import SvgIcon from './components/svg-icon/SvgIcon.vue'
 import router from './router'
 import { store, key } from './store'

@@ -1,5 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>登录页</div>
+  <div class="login">登录页</div>
 </template>
+
+<style lang="scss" scoped>
+.login{
+  color: $red;
+}
+</style>
