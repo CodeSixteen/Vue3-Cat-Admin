@@ -4,11 +4,6 @@
 </script>
 
 <template>
-  <img alt="logo" src="@/assets/logo.png" />
-  <p>
-    <router-link to="/">首页</router-link> | 
-    <router-link to="/login">登录</router-link>
-  </p>
   <router-view></router-view>
 </template>
 
@@ -19,6 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  min-height: 100%;
 }
 </style>

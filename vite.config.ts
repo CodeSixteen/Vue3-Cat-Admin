@@ -2,12 +2,22 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { svgBuilder } from './src/icons/svg-builder'
+// https://element-plus.gitee.io/zh-CN/guide/quickstart.html#按需导入
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    svgBuilder('./src/icons/svg/', 'icon')
+    svgBuilder('./src/icons/svg/', 'icon'),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    })
   ],
   server: {
     port: 5555
@@ -22,4 +32,21 @@ export default defineConfig({
       }
     }
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // 所有模块全部生成单独的js文件配置
+        // manualChunks: (id) => {
+        //   if (id.includes('node_modules')) {
+        //     return id.toString().split('node_modules/')[1].split('/')[0].toString()
+        //   }
+        // }
+
+        // 单独打包 element-plus
+        manualChunks: {
+          'element-plus': ['element-plus']
+        }
+      }
+    }
+  }
 })
