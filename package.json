@@ -1,6 +1,6 @@
 {
   "name": "cydy-vue3-admin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.5",
+    "mockjs": "^1.1.0",
+    "vite-plugin-mock": "^2.9.6",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"

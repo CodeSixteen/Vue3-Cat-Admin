@@ -2,39 +2,56 @@
 import defaultSettings from '@/settings'
 import { reactive, ref } from 'vue'
 import { User, Lock } from '@element-plus/icons'
-
 import { validatePassword } from '@/utils/validate'
+import { timeFix } from '@/utils'
+import { login } from '@/api/user'
+import { useRouter, useRoute } from 'vue-router'
+import { ElNotification } from 'element-plus'
+import 'element-plus/es/components/notification/style/css'
+
+const router = useRouter()
+const route = useRoute()
 
 const loginForm = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 })
 const formRules = reactive({
-    username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-    password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, trigger: 'blur', validator: validatePassword }]
 })
 
 const elform = ref('')
 
 const onLogin = () => {
-  console.log(loginForm)
+  login(loginForm)
+    .then(res => {
+      localStorage.setItem('token', res.data)
+      const redirect: any = route.query.redirect
+      if (redirect) {
+        router.push(redirect)
+      } else {
+        router.push('/')
+      }
+      ElNotification.success({
+        title: '登录成功',
+        message: `${timeFix()}，欢迎回来！`,
+        type: 'success'
+      })
+    })
+    .catch(e => {
+      console.log(e)
+    })
 }
 </script>
 
 <template>
   <div class="login-page">
     <div class="login-form">
-      <div class="login-title">
-        {{ defaultSettings.title }}
-      </div>
+      <div class="login-title">{{ defaultSettings.title }}</div>
       <el-form ref="elform" :model="loginForm" :rules="formRules">
         <el-form-item prop="username">
-          <el-input
-            v-model="loginForm.username"
-            :prefix-icon="User"
-            clearable
-            placeholder="用户名"
-          />
+          <el-input v-model="loginForm.username" :prefix-icon="User" clearable placeholder="用户名" />
         </el-form-item>
         <el-form-item prop="password">
           <el-input
@@ -51,9 +68,7 @@ const onLogin = () => {
           style="width: 100%"
           @keydown.enter.prevent="onLogin"
           @click.prevent="onLogin"
-        >
-          登录
-        </el-button>
+        >登录</el-button>
       </el-form>
     </div>
 
