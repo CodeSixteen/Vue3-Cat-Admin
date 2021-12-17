@@ -27,6 +27,11 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@element-plus/icons-vue@^0.2.2":
+  version "0.2.4"
+  resolved "https://registry.npmmirror.com/@element-plus/icons-vue/download/@element-plus/icons-vue-0.2.4.tgz#dadcf72f0cea53dc83b7b7db80e1418716d7b02c"
+  integrity sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==
+
 "@element-plus/icons@^0.0.11":
   version "0.0.11"
   resolved "https://registry.npmmirror.com/@element-plus/icons/download/@element-plus/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
@@ -111,6 +116,11 @@
   resolved "https://registry.nlark.com/@trysound/sax/download/@trysound/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha1-zMqrdYr1Z2Hre/N69vA/Mm3XmK0=
 
+"@types/enquire.js@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.npmmirror.com/@types/enquire.js/download/@types/enquire.js-2.1.3.tgz#d2af28b7dba810916517975cbe970435da775163"
+  integrity sha1-0q8ot9uoEJFlF5dcvpcENdp3UWM=
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.npmmirror.com/@types/estree/download/@types/estree-0.0.39.tgz?cache=0&sync_timestamp=1637263662156&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Festree%2Fdownload%2F%40types%2Festree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
@@ -125,6 +135,11 @@
   version "16.11.12"
   resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.12.tgz#ac7fb693ac587ee182c3780c26eb65546a1a3c10"
   integrity sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==
+
+"@types/path-browserify@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/@types/path-browserify/download/@types/path-browserify-1.0.0.tgz?cache=0&sync_timestamp=1637270048702&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpath-browserify%2Fdownload%2F%40types%2Fpath-browserify-1.0.0.tgz#294ec6e88b6b0d340a3897b7120e5b393f16690e"
+  integrity sha1-KU7G6ItrDTQKOJe3Eg5bOT8WaQ4=
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -311,6 +326,11 @@ acorn@^7.1.1:
   version "7.4.1"
   resolved "https://registry.npmmirror.com/acorn/download/acorn-7.4.1.tgz?cache=0&sync_timestamp=1637225499069&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Facorn%2Fdownload%2Facorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
+
+animate.css@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.nlark.com/animate.css/download/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+  integrity sha1-YU7FqBEx1+TcNipYFD90BqvWgHU=
 
 ansi-styles@^4.1.0:
   version "4.3.0"
@@ -581,12 +601,12 @@ ee-first@1.1.1:
   resolved "https://registry.nlark.com/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-element-plus@^1.2.0-beta.5:
-  version "1.2.0-beta.5"
-  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.2.0-beta.5.tgz#ef4498c2d051a122cf5898189f4215129bb368bb"
-  integrity sha512-8KNGsNZ6RjVJ7kmxq/WLeTBMhVxSjfaGdW2QdcdXz4km1MgxbyBfdiNGVQG4XH/n+hbtLFldCPw0mVT4vkncuA==
+element-plus@^1.2.0-beta.6:
+  version "1.2.0-beta.6"
+  resolved "https://registry.npmmirror.com/element-plus/download/element-plus-1.2.0-beta.6.tgz#9fa01a06950eb0380f0454cb75aefaaf5b81b043"
+  integrity sha512-8EdSIR/5/FHcSB8w1diAh+gJMHgxIvxuZoayY99k6taAR1QyEFHuPTgFccZLopJ1+iP4UEsZFz49l57qS08Utw==
   dependencies:
-    "@element-plus/icons" "^0.0.11"
+    "@element-plus/icons-vue" "^0.2.2"
     "@popperjs/core" "^2.10.2"
     "@vueuse/core" "^7.0.0"
     async-validator "^4.0.7"
@@ -607,6 +627,11 @@ encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.nlark.com/encodeurl/download/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+
+enquire.js@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.npmmirror.com/enquire.js/download/enquire.js-2.1.6.tgz#3e8780c9b8b835084c3f60e166dbc3c2a3c89814"
+  integrity sha1-PoeAybi4NQhMP2DhZtvDwqPImBQ=
 
 entities@^2.0.0:
   version "2.2.0"
@@ -1054,6 +1079,11 @@ parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.nlark.com/parseurl/download/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=
+
+path-browserify@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/path-browserify/download/path-browserify-1.0.1.tgz#d98454a9c3753d5790860f16f68867b9e46be1fd"
+  integrity sha1-2YRUqcN1PVeQhg8W9ohnueRr4f0=
 
 path-parse@^1.0.6:
   version "1.0.7"

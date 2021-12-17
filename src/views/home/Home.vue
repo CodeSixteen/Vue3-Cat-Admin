@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { useStore } from '@/store'
-import { computed } from 'vue'
-const store = useStore()
+import { computed, ref, inject, reactive } from 'vue'
+const store: any = inject('store')
 const username = computed(() => store.state.user.username)
+let openSidebar = ref(true)
+const onToggle = () => {
+  openSidebar.value = !openSidebar.value
+}
+
+const tableData = reactive([{
+  id: '141'
+}])
+
 </script>
 
 <template>
-  <div>首页</div>
-  <div>{{ username }}</div>
+  <div style="margin: 16px;">
+    <el-table :data="tableData" border>
+      <el-table-column label="ID" prop="id"></el-table-column>
+    </el-table>
+  </div>
 </template>

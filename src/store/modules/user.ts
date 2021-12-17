@@ -1,9 +1,13 @@
+import { logout, login, getUserinfo } from '@/api/user'
+
 export interface UserState {
-  username: string
+  username: string,
+  avatar: string
 }
 
 const state: UserState = {
-  username: 'Admin'
+  username: 'Admin',
+  avatar: ''
 }
 
 const mutations = {
@@ -15,6 +19,32 @@ const mutations = {
 const actions = {
   setUsername(context: any, name: string) {
     context.commit('SET_USERNAME', name)
+  },
+  getUserInfo(context: any) {
+    return new Promise((resolve: any, reject) => {
+      getUserinfo()
+        .then((res: any) => {
+          const username = res.data.name
+          context.commit('SET_USERNAME', username)
+          resolve(res)
+        })
+        .catch((e: any) => {
+          reject(e)
+        })
+    })
+  },
+  logout(context: any) {
+    return new Promise((resolve: any, reject) => {
+      logout()
+        .then(() => {
+          context.commit('SET_USERNAME', '')
+          localStorage.removeItem('token')
+          resolve()
+        })
+        .catch(e => {
+          reject(e)
+        })
+    })
   }
 }
 

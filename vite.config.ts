@@ -30,6 +30,20 @@ export default defineConfig({
       scss: {
         additionalData: `@import './src/styles/variables.scss';` // 全局使用 scss styles 变量
       }
+    },
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
     }
   },
   build: {
@@ -42,9 +56,10 @@ export default defineConfig({
         //   }
         // }
 
-        // 单独打包 element-plus
+        // module 单独打包
         manualChunks: {
-          'element-plus': ['element-plus']
+          'element-plus': ['element-plus'],
+          'animate': ['animate.css']
         }
       }
     }

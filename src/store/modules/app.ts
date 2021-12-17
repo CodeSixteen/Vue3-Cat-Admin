@@ -1,11 +1,13 @@
 export interface AppState {
   device: string,
-  openSidebar: boolean
+  openSidebar: boolean,
+  fixedHeader: boolean
 }
 
 const state: AppState = {
   device: 'desktop',
-  openSidebar: true
+  openSidebar: true,
+  fixedHeader: true
 }
 
 const mutations = {

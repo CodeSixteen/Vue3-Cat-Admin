@@ -1,6 +1,6 @@
 {
   "name": "cydy-vue3-admin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "animate.css": "^4.1.1",
     "axios": "^0.24.0",
-    "element-plus": "^1.2.0-beta.5",
+    "element-plus": "^1.2.0-beta.6",
+    "enquire.js": "^2.1.6",
     "mockjs": "^1.1.0",
     "vite-plugin-mock": "^2.9.6",
     "vue": "^3.2.16",
@@ -18,8 +20,11 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@types/enquire.js": "^2.1.3",
     "@types/node": "^16.11.11",
+    "@types/path-browserify": "^1.0.0",
     "@vitejs/plugin-vue": "^1.9.3",
+    "path-browserify": "^1.0.1",
     "sass": "^1.44.0",
     "svgo": "^2.8.0",
     "typescript": "^4.4.3",

@@ -7,7 +7,6 @@ import { timeFix } from '@/utils'
 import { login } from '@/api/user'
 import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
-import 'element-plus/es/components/notification/style/css'
 
 const router = useRouter()
 const route = useRoute()
@@ -35,8 +34,7 @@ const onLogin = () => {
       }
       ElNotification.success({
         title: '登录成功',
-        message: `${timeFix()}，欢迎回来！`,
-        type: 'success'
+        message: `${timeFix()}，欢迎回来！`
       })
     })
     .catch(e => {

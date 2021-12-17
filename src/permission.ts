@@ -1,4 +1,5 @@
 import router from './router'
+import { store } from '@/store' 
 
 router.beforeEach(async (to, from) => {
   const token = localStorage.getItem('token')
@@ -8,5 +9,11 @@ router.beforeEach(async (to, from) => {
       router.push(path)
       return false
     }
+  } else {
+    const username = store.state.user.username
+    if (!username) {
+      const userInfo = await store.dispatch('user/getUserInfo')
+    }
+
   }
 })

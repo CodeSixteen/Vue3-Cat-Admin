@@ -1,8 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
 import { ElMessageBox, ElNotification } from 'element-plus'
-import 'element-plus/es/components/notification/style/css'
-import 'element-plus/es/components/message-box/style/css'
 
 const service = axios.create({
   baseURL: '',

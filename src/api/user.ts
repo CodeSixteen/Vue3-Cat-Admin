@@ -12,3 +12,20 @@ export function login(data: any) {
     data
   })
 }
+/**
+ * 退出登录
+ * @returns
+ */
+export function logout() {
+  return request({
+    url: `${baseApi}/logout`,
+    method: 'post'
+  })
+}
+
+export function getUserinfo() {
+  return request({
+    url: `${baseApi}/userinfo`,
+    method: 'get'
+  })
+}

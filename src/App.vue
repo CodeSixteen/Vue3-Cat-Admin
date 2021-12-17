@@ -1,6 +1,29 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { deviceEnquire, DEVICE_TYPE } from './utils/device'
+import { onMounted, provide } from 'vue'
+import { useStore } from '@/store'
+
+const store = useStore()
+provide('store', store)
+onMounted(() => {
+  deviceEnquire((deviceType: string) => {
+    switch (deviceType) {
+      case DEVICE_TYPE.DESKTOP:
+        store.commit('app/TOGGLE_DEVICE', 'desktop')
+        store.dispatch('app/openSidebar')
+        break
+      case DEVICE_TYPE.TABLET:
+        store.commit('app/TOGGLE_DEVICE', 'tablet')
+        store.dispatch('app/closeSidebar')
+        break
+      case DEVICE_TYPE.MOBILE:
+      default:
+        store.commit('app/TOGGLE_DEVICE', 'mobile')
+        store.dispatch('app/closeSidebar')
+        break
+    }
+  })
+})
 </script>
 
 <template>
@@ -9,11 +32,8 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  min-height: 100%;
+  height: 100%;
 }
 </style>
