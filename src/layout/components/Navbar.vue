@@ -9,13 +9,13 @@ const store: any = inject('store')
 const fixedHeader = computed(() => store.state.app.fixedHeader)
 const openSidebar = computed(() => store.state.app.openSidebar)
 const username = computed(() => store.state.user.username)
-
+const avatar = computed(() => store.state.user.avatar)
 function toggleSidebar() {
   store.dispatch('app/toggleSidebar')
 }
 function logout() {
   store.dispatch('user/logout')
-  .then(() => {
+    .then(() => {
       router.push(`/login?redirect=${encodeURIComponent(route.fullPath)}`)
     })
     .catch((e: any) => {
@@ -27,15 +27,16 @@ function logout() {
 <template>
   <div class="navbar" :class="{ 'fixed-header': fixedHeader }">
     <div>
-      <div class="navbar-item">
+      <div class="navbar-item is-click">
         <Hamburger :is-active="!openSidebar" @toggle-click="toggleSidebar"></Hamburger>
       </div>
     </div>
-    <div>
-      <div class="navbar-item username">{{ username }}</div>
-      <div class="navbar-item logout" @click="logout">
-        退出
+    <div class="navbar-right">
+      <div class="navbar-item avatar">
+        <img :src="avatar" :alt="username" />
       </div>
+      <div class="navbar-item username">{{ username }}</div>
+      <div class="navbar-item is-click logout" @click="logout">退出</div>
     </div>
   </div>
 </template>
@@ -44,27 +45,43 @@ function logout() {
 .navbar {
   height: $navbarHeight;
   background-color: #ffffff;
-  box-shadow: 0 0 8px 1px #F1F3F4;
+  box-shadow: 0 0 8px 1px #f1f3f4;
   display: flex;
   justify-content: space-between;
-  .navbar-item{
+  .navbar-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .navbar-item {
     display: inline-block;
     height: $navbarHeight;
     line-height: $navbarHeight;
-    cursor: pointer;
-    &:hover{
-      background-color: #f7f7f7;
+    &.is-click{
+      cursor: pointer;
+      &:hover {
+        background-color: #f7f7f7;
+      }
     }
   }
-  .logout{
-    padding: 0 16px;
+  .avatar {
+    padding: 0 8px;
+    width: 56px;
+    height: 50px;
+    overflow: hidden;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      vertical-align: middle;
+    }
+  }
+  .username {
+    padding: 0 8px;
+  }
+  .logout {
+    padding: 0 8px;
     color: $linkBtn;
-  }
-  .username{
-    cursor: initial;
-    &:hover{
-      background-color: #ffffff;
-    }
   }
 }
 </style>

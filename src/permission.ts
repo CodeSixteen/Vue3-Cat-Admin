@@ -12,7 +12,7 @@ router.beforeEach(async (to, from) => {
   } else {
     const username = store.state.user.username
     if (!username) {
-      const userInfo = await store.dispatch('user/getUserInfo')
+      await store.dispatch('user/getUserInfo')
     }
 
   }

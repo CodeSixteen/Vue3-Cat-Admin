@@ -6,26 +6,27 @@ export interface UserState {
 }
 
 const state: UserState = {
-  username: 'Admin',
+  username: '',
   avatar: ''
 }
 
 const mutations = {
   SET_USERNAME: (state: UserState, name: string) => {
     state.username = name
+  },
+  SET_AVATAR: (state: UserState, avatar: string) => {
+    state.avatar = avatar
   }
 }
 
 const actions = {
-  setUsername(context: any, name: string) {
-    context.commit('SET_USERNAME', name)
-  },
   getUserInfo(context: any) {
     return new Promise((resolve: any, reject) => {
       getUserinfo()
         .then((res: any) => {
-          const username = res.data.name
-          context.commit('SET_USERNAME', username)
+          const { name, avatarUrl } = res.data
+          context.commit('SET_USERNAME', name)
+          context.commit('SET_AVATAR', avatarUrl)
           resolve(res)
         })
         .catch((e: any) => {
@@ -38,6 +39,7 @@ const actions = {
       logout()
         .then(() => {
           context.commit('SET_USERNAME', '')
+          context.commit('SET_AVATAR', '')
           localStorage.removeItem('token')
           resolve()
         })
