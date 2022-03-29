@@ -1,33 +1,18 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Layout from '@/layout/Layout.vue'
-import Login from '@/views/login/Login.vue'
-import Home from '@/views/home/Home.vue'
-import NotFound from '../views/404/404.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
-export const asyncRouters: Array<RouteRecordRaw> = []
-
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
-    component: Layout,
-    redirect: '/home',
-    children: [
-      {
-        path: 'home',
-        name: 'Home',
-        component: Home
-      }
-    ]
+    component: () => import('~/components/HelloWorld.vue')
+
   },
   {
-    path: '/login',
-    component: Login
-  },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
-]
+    path: '/home',
+    component: () => import('~/pages/Home.vue')
+  }]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
